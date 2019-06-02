@@ -41,7 +41,7 @@ Once you have python3 and pip3 installed, lastly install virtualenv by typing th
 virtualenv -p python3 csirt-hackathon-venv
 sleep 7
 cd ./csirt-hackathon-venv
-git clone https://github.com/siddhartharao17/csirt-hackathon-flask-app.git
+git clone https://csirt-gitlab.cisco.com/siddhrao/csirt-hackathon-flask-app.git
 source ./bin/activate
 pip3 install -r ./csirt-hackathon-flask-app/requirements.txt
 ```
