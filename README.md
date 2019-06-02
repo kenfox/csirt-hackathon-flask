@@ -41,13 +41,13 @@ Once you have python3 and pip3 installed, lastly install virtualenv by typing th
 virtualenv -p python3 csirt-hackathon-venv
 cd ./csirt-hackathon-venv
 git clone https://csirt-gitlab.cisco.com/siddhrao/csirt-hackathon-flask-app.git
-source ./bin/activate
+. ./bin/activate
 pip3 install -r ./csirt-hackathon-flask-app/requirements.txt
+./bin/python3 ./csirt-hackathon-flask-app/app.py
 ```
 
-**Step 2:** Make it executable by typing `chmod +x setup.sh` in the terminal and run the executable by typing `./setup.sh`. You might be asked to enter your gitlab credentials to clone the repo. Wait while the script sets up the environment and installs dependencies for you.
-
-**Step 3:** Finally, run the app by typing `./bin/python3 ./csirt-hackathon-flask-app/app.py`
+**Step 2:** Make it executable by typing `chmod +x setup.sh` in the terminal and run the executable by typing `. ./setup.sh`. You might be asked to enter your gitlab credentials to clone the repo. Wait while the script sets up the environment and installs dependencies for you.
+# **Step 3:** Finally, run the app by typing `./bin/python3 ./csirt-hackathon-flask-app/app.py`
 
 
 ## Details about This Toy App
