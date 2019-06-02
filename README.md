@@ -1,8 +1,8 @@
-# flask-example
+# csirt-hackathon-flask-app
 
-A minimal web app developed with [Flask](http://flask.pocoo.org/) framework. 
+A minimal web app developed with [Flask](http://flask.pocoo.org/) framework. This app is developed by [XD-DENG](https://github.com/XD-DENG).
 
-The main purpose is to introduce how to implement the essential elements in web application with Flask, including
+This web app contains the following essential elements of a web application:
 
 - URL Building
 
@@ -20,13 +20,35 @@ The main purpose is to introduce how to implement the essential elements in web 
 
 For more basic knowledge of Flask, you can refer to [a tutorial on Tutorialspoint](https://www.tutorialspoint.com/flask/).
 
+## Getting Started
+**Note**: This documentation is based on tests carried out on a clean Ubuntu 18.04 LTS version.
+
+Before running the app, make sure you have the right environment for it and essential dependencies installed.
+
+As this app is written in Python3, we need **python3**. To install the required dependencies, **pip3** is recommended and as a best practice, we want to isolate the environment for this app from the global environment so to do that we need **virtualenv**. **git** is needed to pull this project to local working directory.
+
+Once you have python3 and pip3 installed, lastly install virtualenv by typing the following in the `Terminal`:
+
+`sudo pip3 install virtualenv`
+
 
 ## How to Run
+**Step 1:** `cd` over to the directory that will be the parent dir for this project. Copy all the lines below into a new file and save it as **setup.sh**
 
-- Step 1: Make sure you have Python packages *flask*, *hashlib*, and *sqlite3* installed.
+```
+#!/bin/bash
 
-- Step 2: Go to this app's directory and run `python app.py`
+virtualenv -p python3 csirt-hackathon-venv
+sleep 7
+cd ./csirt-hackathon-venv
+git clone https://github.com/siddhartharao17/csirt-hackathon-flask-app.git
+source ./bin/activate
+pip3 install -r ./csirt-hackathon-flask-app/requirements.txt
+```
 
+**Step 2:** Make it executable by typing `chmod +x setup.sh` in the terminal and run the executable by typing `./setup.sh`. Wait while the script sets up the environment and installs dependencies for you.
+
+**Step 3:** Finally, run the app by typing `./bin/python3 ./csirt-hackathon-flask-app/app.py`
 
 
 ## Details about This Toy App
@@ -43,7 +65,6 @@ There are three tabs in this toy app
 A few accounts were set for testing, like ***admin*** (password: admin), ***test*** (password: 123456), etc. You can also delete or add accounts after you log in as ***admin***.
 
 
-
 ## References
 
 - http://flask.pocoo.org/
@@ -51,8 +72,7 @@ A few accounts were set for testing, like ***admin*** (password: admin), ***test
 - https://www.tutorialspoint.com/flask/
 
 
-
 ## Credict
 Image private.jpg: https://commons.wikimedia.org/wiki/File:(315-365)_Locked_(6149414678).jpg
-
 Image public.jpg: https://commons.wikimedia.org/wiki/File:Drown%3F!_(131380682).jpg
+
