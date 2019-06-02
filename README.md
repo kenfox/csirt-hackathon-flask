@@ -48,6 +48,8 @@ pip3 install -r ./csirt-hackathon-flask-app/requirements.txt
 
 **Step 2:** Make it executable by typing `chmod +x setup.sh` in the terminal and run the executable by typing `. ./setup.sh`. You might be asked to enter your gitlab credentials to clone the repo. Wait while the script sets up the environment and installs dependencies for you.
 
+**Note:** If in case the app requires a package and it is not installed, simply use `pip3 install <package-name>` on the terminal. To exit the virtual environment, type `deactivate` on the terminal.
+
 
 ## Details about This Toy App
 
