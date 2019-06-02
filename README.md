@@ -25,7 +25,7 @@ For more basic knowledge of Flask, you can refer to [a tutorial on Tutorialspoin
 
 Before running the app, make sure you have the right environment for it and essential dependencies installed.
 
-As this app is written in Python3, we need **python3**. To install the required dependencies, **pip3** is recommended and as a best practice, we want to isolate the environment for this app from the global environment so to do that we need **virtualenv**. **git** is needed to pull this project to local working directory.
+As this app is written in Python3, we need **python3**. To install the required dependencies, **pip3** is recommended and as a best practice, we want to isolate the environment for this app from the global environment so to do that we need **virtualenv**. We use **git** to pull this project to local working directory.
 
 Once you have python3 and pip3 installed, lastly install virtualenv by typing the following in the `Terminal`:
 
