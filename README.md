@@ -1,6 +1,5 @@
 # csirt-hackathon-flask-app
 
-<<<<<<< HEAD
 A minimal web app developed with [Flask](http://flask.pocoo.org/) framework. This app is developed by [XD-DENG](https://github.com/XD-DENG).
 
 This web app contains the following essential elements of a web application:
@@ -77,6 +76,3 @@ A few accounts were set for testing, like ***admin*** (password: admin), ***test
 Image private.jpg: https://commons.wikimedia.org/wiki/File:(315-365)_Locked_(6149414678).jpg
 Image public.jpg: https://commons.wikimedia.org/wiki/File:Drown%3F!_(131380682).jpg
 
-=======
-A simple, minimal Flask web app for the CSIRT Hackathon
->>>>>>> cb8da7b17dda454bd3c1faeffe1d9c152b935d44
