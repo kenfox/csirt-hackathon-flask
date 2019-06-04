@@ -1,6 +1,7 @@
 import os
 import datetime
 import hashlib
+import logging
 from flask import Flask, session, url_for, redirect, render_template, request, abort, flash
 from database import list_users, verify, delete_user_from_db, add_user
 from database import read_note_from_db, write_note_into_db, delete_note_from_db, match_user_id_with_note_id
@@ -12,7 +13,8 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app.config.from_object('config')
 
-
+# Instantiate our Logger
+logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%Y-%m-%dT%H:%M:%S+%Z', filename='app.log',level=logging.DEBUG)
 
 @app.errorhandler(401)
 def FUN_401(error):
@@ -36,8 +38,6 @@ def FUN_413(error):
 
 
 
-
-
 @app.route("/")
 def FUN_root():
     return render_template("index.html")
@@ -49,6 +49,7 @@ def FUN_public():
 @app.route("/private/")
 def FUN_private():
     if "current_user" in session.keys():
+        logging.info("[%s] accessed /private/", session['current_user'])
         notes_list = read_note_from_db(session['current_user'])
         notes_table = zip([x[0] for x in notes_list],\
                           [x[1] for x in notes_list],\
@@ -149,17 +150,19 @@ def FUN_login():
     id_submitted = request.form.get("id").upper()
     if (id_submitted in list_users()) and verify(id_submitted, request.form.get("pw")):
         session['current_user'] = id_submitted
-    
+    logging.info("%s logged in", session['current_user'])
     return(redirect(url_for("FUN_root")))
 
 @app.route("/logout/")
 def FUN_logout():
+    logging.info("%s logged out", session['current_user'])
     session.pop("current_user", None)
     return(redirect(url_for("FUN_root")))
 
 @app.route("/delete_user/<id>/", methods = ['GET'])
 def FUN_delete_user(id):
     if session.get("current_user", None) == "ADMIN":
+        logging.warning("%s - - [%s] deleted %s", request.remote_addr, session['current_user'], id)
         if id == "ADMIN": # ADMIN account can't be deleted.
             return abort(403)
 
@@ -192,6 +195,7 @@ def FUN_add_user():
             return(render_template("admin.html", id_to_add_is_invalid = True, users = user_table))
         else:
             add_user(request.form.get('id'), request.form.get('pw'))
+            logging.info("%s - - [%s] added user %s", request.remote_addr, session['current_user'], request.form.get('id'))
             return(redirect(url_for("FUN_admin")))
     else:
         return abort(401)

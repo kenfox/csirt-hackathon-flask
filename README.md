@@ -33,23 +33,23 @@ Once you have python3 and pip3 installed, lastly install virtualenv by typing th
 
 
 ## How to Run
-**Step 1:** `cd` over to the directory that will be the parent dir for this project. Copy all the lines below into a new file and save it as **setup.sh**
 
-```
-#!/bin/bash
+Clone the Ansible repo to bootstrap the instance
 
-virtualenv -p python3 csirt-hackathon-venv
-cd ./csirt-hackathon-venv
-git clone https://github.com/siddhartharao17/csirt-hackathon-flask.git
-. ./bin/activate
-pip3 install -r ./csirt-hackathon-flask/requirements.txt
-./bin/python3 ./csirt-hackathon-flask/app.py
+```bash
+git clone REPO_URL
+cd csirt-hackathon-ansible
+ansible-playbook -i inventory playbook.yml
 ```
 
-**Step 2:** Make it executable by typing `chmod +x setup.sh` in the terminal and run the executable by typing `. ./setup.sh`. You might be asked to enter your gitlab credentials to clone the repo. Wait while the script sets up the environment and installs dependencies for you.
+Install pip dependencies and run the application using honcho.
+Honcho will read the Procfile to run the webapp via gunicorn.
 
-**Note:** If in case the app requires a package and it is not installed, simply use `pip3 install <package-name>` on the terminal. To exit the virtual environment, type `deactivate` on the terminal.
-
+```bash
+cd /opt/csirt
+pipfile install
+pipfile run honcho start
+```
 
 ## Details about This Toy App
 
